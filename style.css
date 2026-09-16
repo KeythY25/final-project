@@ -166,19 +166,19 @@ nav {
 }
 
 .menu__backdrop{
-  position: absolute;
-  background-color: #242424;
+  position: fixed;
+  background-color: white;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 100;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000;
   display: flex;
   justify-content: center;
   align-items: center;
   visibility: hidden;
-  transition: opacity 300ms ease;
-  opacity: 0;
+  transition: opacity 300ms ease,
+              visibility 300ms ease;
 }
 
 .menu--open .menu__backdrop{
@@ -186,17 +186,20 @@ nav {
   opacity: 1;
 }
 
-.menu--open{
-  max-height: 100vh;
+body.menu--open{
   overflow-y: hidden ;
 }
 
 .btn__menu--close{
-  position:absolute;
-  right: 20px;
-  top: 40px;
-  padding: 8px;
-  color: white;
+  position: absolute;
+  right: 24px;
+  top: 24px;
+
+  background: transparent;
+  border: none;
+  
+  color: #243e63;
+  font-size: 32px;
 }
 
 .menu__links {
@@ -206,13 +209,14 @@ nav {
 }
 
 .menu__list{
-  padding: 32px 0;
+  padding: 12px 0;
 }
 
 .menu__link{
   position: relative;
-  color: white;
-  font-size: 40px;
+  color: #243e63;
+  font-size: 18px;
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -221,11 +225,11 @@ nav {
 
   position: absolute;
   left: 0;
-  bottom: -6px;
+  bottom: -4px;
 
   width: 100%;
-  height: 3px;
-  background-color: white;
+  height: 1px;
+  background-color: #6415ff;
 
   transform: scaleX(0);
   transform-origin: right;
@@ -1815,6 +1819,8 @@ ANIMATION
 
 /* SMALL PHONES, LARGE SMARTPHONE*/
 @media (max-width: 639px){
+
+  
   .services{
     flex-direction: column;
     padding: 64px 24px;
